@@ -1,0 +1,22 @@
+{
+  "name": "angular_app",
+  "description": "Simple app",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "https://github.com/jayaram-heresy/angular_app",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "bootstrap": "^3.3.6",
+    "ng-lodash": "^0.4.0",
+    "bootswatch": "^3.3.6+1"
+  }
+}
