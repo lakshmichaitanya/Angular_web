@@ -13,5 +13,8 @@ var app=angular.module('projectApp', ['ngRoute']);
 	    .when('/user/:user_id/projects', {
 		controller: 'user_projects_controller',
 		templateUrl: '../views/user_projects.html'
+	    }).when('/',{
+		controller: 'main_controller',
+		templateUrl: '../index.html'
 	    })
 }]);

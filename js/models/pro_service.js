@@ -39,3 +39,10 @@ app.factory('user_projects_service', function ($q,$http) {
         }
     };
 });
+app.factory('main_service', function ($http) {
+    return {
+        get: function () {
+                     return $http.get('/js/modules/user.json');
+        }
+    };
+});

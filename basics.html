@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="projectApp">
+	<head>
+		<script src = "/bower_components/angular/angular.min.js"></script>
+		<script src = "/bower_components/angular-route/angular-route.min.js"></script>
+		<script src= "/bower_components/ng-lodash/build/ng-lodash.min.js"></script>
+		<script src="/js/modules/app.js"></script>
+		<script src="/js/controllers/pro_controller.js"></script>
+		<script src="/js/models/pro_service.js"></script>
+		
+		
+		<title>angular_project</title>
+		
+	</head>
+	
+	<body>
+		
+  		 	
+		<ul>
+			<li><a href="#users"> users </a></li>
+			<li><a href="#tasks"> tasks </a></li>
+			<li><a href="#projects">projects</a></li>
+		</ul>
+	
+		<div ng-view></div>
+	
+		
+	</body>
+</html>
+		
