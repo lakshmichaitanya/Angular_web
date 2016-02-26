@@ -24,9 +24,9 @@ app.controller('user_projects_controller', function ($scope,  $routeParams, user
 });
 app.controller('main_controller', function ($rootScope,main_service,user_projects_service ) {
 	$rootScope.userData=function(data){
-		user_projects_service.get(data).then(function (msg) {
-         		$rootScope.msg = msg;
-         		console.log(msg);
+		user_projects_service.get(data).then(function (userProj) {
+         		$rootScope.userProj = userProj;
+         		console.log(userProj);
 			
 		});
 	}
