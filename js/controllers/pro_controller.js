@@ -1,40 +1,46 @@
-app.controller('users_controller', function ($scope, users_service ) {
-	users_service.get().then(function (msg) {
+app.controller('usersController', function ($scope, usersService ) {
+	userService.get().then(function (msg) {
          	$scope.msg = msg;
     	});
 });
-app.controller('tasks_controller', function ($scope, tasks_service) {
-	 tasks_service.get().then(function (msg) {
-         	$scope.msg = msg;
-         	
-    	});
-});
-app.controller('projects_controller', function ($scope, projects_service) {
-	projects_service.get().then(function (msg) {
+app.controller('tasksController', function ($scope, taskService) {
+	 taskService.get().then(function (msg) {
          	$scope.msg = msg;
          	
     	});
 });
-app.controller('user_projects_controller', function ($scope,  $routeParams, user_projects_service) {
+app.controller('projectsController', function ($scope, projectService) {
+	projectService.get().then(function (msg) {
+         	$scope.msg = msg;
+         	
+    	});
+});
+app.controller('userProjectsController', function ($scope,  $routeParams, userProjectService) {
 	$scope.user_id=$routeParams.user_id;
-	user_projects_service.get($scope.user_id).then(function (msg) {
+	userProjectService.get($scope.user_id).then(function (msg) {
          	$scope.msg = msg;
          	console.log(msg);     	
     	});
 });
-app.controller('main_controller', function ($rootScope,main_service,user_projects_service ) {
-	$rootScope.userData=function(data){
-		user_projects_service.get(data).then(function (userProj) {
-         		$rootScope.userProj = userProj;
-         		console.log(userProj);
-			
-		});
-	}
-	main_service.get().then(function (msg) {
-		// $rootScope.addresses ="1";
+app.controller('mainController', function ($scope,$rootScope,mainService,userProjectService, projectService) {
+	mainService.get().then(function (msg) {
          	$rootScope.msg = msg;
-         	console.log($rootScope.msg);
 	});
+	projectService.get().then(function (proj) {
+         	$rootScope.proj = proj;
+         	
+    	});
+	
+	$rootScope.userData=function(id){
+		$rootScope.userDet=_.filter($rootScope.msg.data.users,{'user_id':id});
+		userProjectService.get(id).then(function (userProj) {
+         	$rootScope.userProj = userProj;
+         	console.log(userProj);     	
+    	});
+		
+		
+	}
+	
 	
 });
 

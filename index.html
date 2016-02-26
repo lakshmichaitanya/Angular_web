@@ -12,10 +12,13 @@
 		<script src="/js/modules/app.js"></script>
 		<script src="/js/controllers/pro_controller.js"></script>
 		<script src="/js/models/pro_service.js"></script>
+		<script src="/js/directives/dashBoard.js"></script>
+		
 		<title>All projects info</title>
 	</head>
 	<body>
-		<div class="page-header" ng-controller="main_controller">
+	
+		<div class="page-header" ng-controller="mainController">
 			<div class="col-sm-offset-10">
 				<select class="btn btn-success" ng-model="id" ng-change="userData(id)">
 					<option ng-repeat="user in msg.data.users"  ng-value="{{user.user_id}}">{{user.user_name}}</option>
@@ -23,31 +26,9 @@
 				<tt>{{user.user_id}}</tt>
 			</div>
 		</div>
-		<div>	
-		<table class="table table-bordered">
-				 <thead>
-        				<tr ng-repeat="head in userProj | limitTo:1">
-         					 <th ng-repeat="(key, val) in head">
-           						 {{key | uppercase}}
-         					 </th>
-        				</tr>
-      				</thead>
-		 		 <tbody>
-        				<tr ng-repeat="value in userProj">
-         					 <td> {{value.id}}</td>
-         					 <td> {{value.name}}</td>
-         					 <td>
-         					 	<div ng-repeat="value1 in value.project_members.user_id">
-         					 		<span>{{value1}}
-         					 		</span>
-         					 	</div>
-         					 </td>			
-        				</tr>
-     				 </tbody>
-		 		
-		 	</table>
-		 	
-		 </div>	
+		<pro_controller></pro_controller>
+		 <pro_controller1></pro_controller1>
+		
 		
 	</body>
 </html>

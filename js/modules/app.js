@@ -1,20 +1,20 @@
-var app=angular.module('projectApp', ['ngRoute']);
+var app=angular.module('projectApp', ['ngRoute','ngLodash']);
 	app.config(['$routeProvider', function($routeProvider) {
 	    $routeProvider.when('/users', {
-	    	controller: 'users_controller',
+	    	controller: 'userController',
 		templateUrl: '../views/users.html'
 	    }).when('/tasks', {
-		controller: 'tasks_controller',
+		controller: 'taskController',
 		templateUrl: '../views/tasks.html'
 	    }).when('/projects', {
-		controller: 'projects_controller',
+		controller: 'projectController',
 		templateUrl: '../views/projects.html'
 	    })
 	    .when('/user/:user_id/projects', {
-		controller: 'user_projects_controller',
+		controller: 'userProjectController',
 		templateUrl: '../views/user_projects.html'
 	    }).when('/',{
-		controller: 'main_controller',
-		templateUrl: '../index.html'
+		controller: 'mainController'
+		
 	    })
 }]);

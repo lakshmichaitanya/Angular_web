@@ -1,4 +1,4 @@
-app.factory('users_service', function ($http) {
+app.factory('userService', function ($http) {
     return {
         get: function () {
         		
@@ -6,21 +6,21 @@ app.factory('users_service', function ($http) {
         }
     };
 });
-app.factory('tasks_service', function ($http) {
+app.factory('taskService', function ($http) {
     return {
         get: function () {
                      return $http.get('/js/modules/task.json');
         }
     };
 });
-app.factory('projects_service', function ($http) {
+app.factory('projectService', function ($http) {
     return {
         get: function () {
                      return $http.get('/js/modules/project.json');
         }
     };
 });
-app.factory('user_projects_service', function ($q,$http) {
+app.factory('userProjectService', function ($q,$http) {
     return {
         get: function (user_id) {
         	  var defer = $q.defer();
@@ -39,7 +39,7 @@ app.factory('user_projects_service', function ($q,$http) {
         }
     };
 });
-app.factory('main_service', function ($http) {
+app.factory('mainService', function ($http) {
     return {
         get: function () {
                      return $http.get('/js/modules/user.json');
