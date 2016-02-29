@@ -1,6 +1,6 @@
-app.controller('usersController', function ($scope, usersService ) {
+app.controller('usersController', function ($rootScope, usersService ) {
 	userService.get().then(function (msg) {
-         	$scope.msg = msg;
+         	$rootScope.msg = msg;
     	});
 });
 app.controller('tasksController', function ($scope, taskService) {
@@ -22,20 +22,24 @@ app.controller('userProjectsController', function ($scope,  $routeParams, userPr
          	console.log(msg);     	
     	});
 });
-app.controller('mainController', function ($scope,$rootScope,mainService,userProjectService, projectService) {
+app.controller('mainController', function ($scope,$rootScope,mainService,userProjectService, projectService,taskService) {
 	mainService.get().then(function (msg) {
          	$rootScope.msg = msg;
 	});
+	 taskService.get().then(function (msg) {
+         	$rootScope.msg1 = msg;
+         	
+    	});
 	projectService.get().then(function (proj) {
          	$rootScope.proj = proj;
-         	
     	});
 	
 	$rootScope.userData=function(id){
 		$rootScope.userDet=_.filter($rootScope.msg.data.users,{'user_id':id});
+		$rootScope.userTsk=_.filter($rootScope.msg1.data.tasks,{'user_id':id});
+		console.log($rootScope.userTsk);
 		userProjectService.get(id).then(function (userProj) {
          	$rootScope.userProj = userProj;
-         	console.log(userProj);     	
     	});
 		
 		

@@ -1,3 +1,21 @@
-<p>{{msg}}</p>
+
+<table class="table table-bordered">
+	 <thead>
+		<tr ng-repeat="head in userDet | limitTo:1">
+			<th ng-repeat="(key, val) in head">{{key | uppercase}}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="value in userDet ">
+		
+			<td> {{value.user_id}}</td>
+			<td> {{value.user_name}}</td>
+			<td><a href="../views/projects.html">{{value.user_email}}</a></td>
+		</tr>
+	</tbody>
+				 		
+</table>
+
+	
 
 

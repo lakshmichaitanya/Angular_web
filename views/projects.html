@@ -1,28 +1,21 @@
-
- <div class="container">
-	 <div class="col-sm-md-6">
-					 	<table class="table table-bordered">
-							 <thead>
-								<tr ng-repeat="head in userProj | limitTo:1">
-				 					 <th ng-repeat="(key, val) in head">
-				   						 {{key | uppercase}}
-				 					 </th>
-								</tr>
-			      				</thead>
-					 		<tbody>
-								<tr ng-repeat="value in userProj">
-				 					 <td> {{value.id}}</td>
-				 					 <td> {{value.name}}</td>
-				 					 
-				 					<td>
-				 					 	<div ng-repeat="value1 in value.project_members.user_id">
-				 					 		<span>{{value1}}
-				 					 		</span>
-				 					 	</div>
-				 					 </td>			
-								</tr>
-			     				 </tbody>
-					 	</table>
-	</div>
-</div>		
+<table class="table table-bordered">
+	<thead>
+		<tr ng-repeat="head in userProj | limitTo:1">
+			<th ng-repeat="(key, val) in head">{{key | uppercase}}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="value in userProj">
+			<td> {{value.id}}</td>
+			<td> {{value.name}}</td>
+			<td>
+				<div ng-repeat="value1 in value.project_members.user_id">
+				 	<span>{{value1}}</span>
+				 </div>
+			</td>			
+		</tr>
+	</tbody>
+</table>
+	
+		
 				 
